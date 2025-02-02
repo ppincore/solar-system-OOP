@@ -1,38 +1,29 @@
+import "./scss/styles.scss";
 import { Earth } from "./components/Earth";
 import { Moon } from "./components/Moon";
 import { Card } from "./components/common/Card";
 import { ensureElement, cloneTemplate } from "./utils/utils";
 import { Page } from "./components/Page";
 import { spaceObjects } from "./utils/constants";
+import { IPlanet, ISatellite } from "./types";
 const page = new Page(document.body);
 
 const planetTemplate = ensureElement<HTMLTemplateElement>("#card__planet");
 const satelliteTemplate =
   ensureElement<HTMLTemplateElement>("#card__satellite");
 
-const clone = cloneTemplate(satelliteTemplate)
-console.log(clone)
-const card = new Card(clone)
-
 page.catalog = spaceObjects.map((item) => {
-  if (item.type === "satellite") {
+  if (item.name === "Moon" && item.type === "satellite") {
+    const moon = new Moon(item as ISatellite);
     const cardSatellite = new Card(cloneTemplate(satelliteTemplate));
-    console.log(cardSatellite)
-    return cardSatellite.render(item);
-  } else if (item.type === "planet") {
+    return cardSatellite.render(moon);
+  } else if (item.name === "Earth" && item.type === "planet") {
+    const earth = new Earth(item as IPlanet);
     const cardPlanet = new Card(cloneTemplate(planetTemplate));
-    console.log(cardPlanet)
-    return cardPlanet.render(item);
+    return cardPlanet.render(earth);
   }
 });
 
-// const card = new Card(clone)
-// console.log(card)
-// spaceObjects.forEach((item) => {
-//   console.log(item.type);
-// });
-
-
-document.addEventListener('DOMContentLoaded', () => {
-console.log('loaded')
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("loaded");
 });
