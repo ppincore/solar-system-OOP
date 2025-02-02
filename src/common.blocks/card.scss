@@ -41,8 +41,8 @@
   }
 
   &__image {
-    height: 390px;
-    aspect-ratio: 1;
+    height: 100%;
+    aspect-ratio: 1/1;
     margin: 3.75rem;
   }
   &__title {
@@ -76,11 +76,5 @@
     &_button {
       background-color: $category4;
     }
-  }
-  &__action {
-
-  }
-  &__price {
-
   }
 }

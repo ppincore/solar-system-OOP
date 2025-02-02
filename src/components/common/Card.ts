@@ -1,6 +1,6 @@
 import { Component } from "../base/Component";
 import { IPlanet, ISatellite } from "../../types";
-import { ensureElement } from "../../utils/utils";
+import { ensureElement, createElement } from "../../utils/utils";
 
 export class Card extends Component<IPlanet | ISatellite> {
   protected _name: HTMLElement;
@@ -10,7 +10,8 @@ export class Card extends Component<IPlanet | ISatellite> {
   protected _orbitalSpeed: HTMLElement;
   protected _rotatonSpeed: HTMLElement;
   protected _satellites: HTMLElement;
-
+  protected _orbitalPeriod:HTMLElement;
+  protected _dayLength:HTMLElement;
   constructor(container: HTMLElement) {
     super(container);
     this._name = ensureElement<HTMLElement>(".card__title", container);
@@ -25,7 +26,8 @@ export class Card extends Component<IPlanet | ISatellite> {
       ".card__rotatonSpeed",
       container
     );
-
+    this._dayLength = ensureElement<HTMLElement>('card__dayLength',container)
+    this._orbitalPeriod = ensureElement<HTMLElement>('card__orbitalPeriod',container)
     const satelliteCardElement =
       container.querySelector<HTMLElement>(".card__satellites");
     satelliteCardElement
