@@ -10,6 +10,7 @@ interface IEarth{
 export class Earth extends Planet implements IEarth{
     constructor(param:IPlanet){
         super(param)
+        this.distance = `Дистанция до звезды Солнце: ${param.distanceFromStar.toLocaleString()} километров`
     }
     calculateOrbitalPeriod(): number {
         return (2 * Math.PI * this.distanceFromStar) / this.orbitalSpeed;

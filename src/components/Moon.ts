@@ -9,6 +9,7 @@ interface IMoon {
 export class Moon extends Satellite implements IMoon {
   constructor(param: ISatellite) {
     super(param);
+    this.distance = `Дистанция до планеты Земля: ${param.distanceFromPlanet.toLocaleString()} километров`
   }
   calculateOrbitalPeriod(): number {
     return (2 * Math.PI * this.distanceFromPlanet) / this.orbitalSpeed;
@@ -16,4 +17,5 @@ export class Moon extends Satellite implements IMoon {
   calculateDayLength(): number {
     return (2 * Math.PI) / this.rotationSpeed;
   }
+
 }

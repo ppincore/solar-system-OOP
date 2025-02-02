@@ -25,33 +25,38 @@ export class Card extends Component<IPlanet | ISatellite> {
       ".card__rotatonSpeed",
       container
     );
-    
-    const satelliteCardElement = container.querySelector<HTMLElement>('.card__satellites')
+
+    const satelliteCardElement =
+      container.querySelector<HTMLElement>(".card__satellites");
     satelliteCardElement
-    ? this._satellites = satelliteCardElement
-    : this._satellites = null
+      ? (this._satellites = satelliteCardElement)
+      : (this._satellites = null);
   }
 
   set name(value: string) {
-    this.setText(this._name, value);
+    this.setText(this._name, `Название  объекта: ${value}`);
   }
   set image(value: string) {
     this.setImage(this._image, value);
   }
   set mass(value: number) {
-    this.setText(this._mass, value);
+    this.setText(this._mass, `Масса: ${value} килограмм`);
   }
 
   set distance(value: number) {
     this.setText(this._distance, value);
   }
   set orbitalSpeed(value: number) {
-    this.setText(this._orbitalSpeed, value);
+    this.setText(this._orbitalSpeed, `Орбитальная скорость: ${value}`);
   }
   set rotationSpeed(value: number) {
-    this.setText(this._rotatonSpeed, value);
+    this.setText(
+      this._rotatonSpeed,
+      `Скорость вращения: ${value.toExponential(7)}`
+    );
+    console.log(this.container);
   }
   set satellites(value: ISatellite[]) {
-    this.setText(this._satellites, value);
+    this.setText(this._satellites, `Спутник: ${value}`);
   }
 }

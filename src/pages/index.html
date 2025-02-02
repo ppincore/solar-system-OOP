@@ -16,12 +16,13 @@
   </head>
   <body class="page">
     <div class="page__wrapper">
+      <main class="gallery"></main>
         </div>
       </header>
-      <main class="gallery"></main>
+    
     </div>
     <template id="card__planet">
-      <div class = 'card__wrapper'>
+      <div class = 'card__wrapper card'>
       <h2 class="card__title">планета</h2>
       <img
         class="card__image"
@@ -37,7 +38,7 @@
     </template>
     <!-- satellite -->
     <template id="card__satellite">
-      <div class='card__wrapper'>
+      <div class='card__wrapper card'>
         <h2 class="card__title">спутник</h2>
         <img class="card__image" src="<%=require('../images/Subtract.svg')%>" alt=""/>
         <span class="card__mass">100</span>

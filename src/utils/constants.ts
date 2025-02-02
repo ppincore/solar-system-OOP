@@ -5,7 +5,7 @@ const moon: ISatellite = {
   type: "satellite",
   image:'https://i.postimg.cc/SK7ynNkQ/moon.jpg',
   distanceFromPlanet: 3.844e8,
-  orbitalSpeed: 1022,
+  orbitalSpeed: 1.022,
   rotationSpeed: 2.6617e-6,
 };
 

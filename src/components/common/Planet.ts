@@ -6,6 +6,7 @@ export class Planet implements IPlanet {
   type: "planet";
   image: string;
   distanceFromStar: number;
+  distance: string;
   orbitalSpeed: number;
   rotationSpeed: number;
   satellites: ISatellite[];
@@ -24,6 +25,7 @@ export class Planet implements IPlanet {
     this.distanceFromStar = distanceFromStar;
     this.mass = mass;
     this.type = type;
+    this.distance = `Дистанция до звезды  ${this.distanceFromStar}`
     this.image = image;
     this.orbitalSpeed = orbitalSpeed;
     this.satellites = satellites;

@@ -3,6 +3,7 @@ export interface IBaseSpaceObject {
 	mass: number;
 	image:string;
 	type: 'planet' | 'satellite'
+	distance?:string
 	orbitalSpeed: number;
 	rotationSpeed: number;
   }
