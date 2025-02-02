@@ -1,29 +1,35 @@
-import { Planet } from "./components/base/Planet";
-import { Star } from "./components/base/Star";
-import { Satellite } from "./components/base/Satellite";
-import { IPlanetConfig, ISatelliteConfig } from "./types";
+import { Earth } from "./components/Earth";
+import { Moon } from "./components/Moon";
+import { Card } from "./components/common/Card";
+import { ensureElement, cloneTemplate } from "./utils/utils";
+import { Page } from "./components/Page";
+import { spaceObjects } from "./utils/constants";
+const page = new Page(document.body);
 
-const moonConfig: ISatelliteConfig = {
-  name: "Moon",
-  mass: 7.348e22,
-  distanceFromPlanet: 3.844e8,
-  orbitalSpeed: 1022,
-  rotationSpeed: 2.6617e-6,
-};
+const planetTemplate = ensureElement<HTMLTemplateElement>("#card__planet");
+const satelliteTemplate =
+  ensureElement<HTMLTemplateElement>("#card__satellite");
+  const clone = cloneTemplate(satelliteTemplate)
+  console.log(clone)
+// page.catalog = spaceObjects.map((item) => {
+//   if (item.type === "satellite") {
+//     const cardSatellite = new Card(cloneTemplate(satelliteTemplate));
+//     return cardSatellite.render(item);
+//   } else if (item.type === "planet") {
+//     const cardPlanet = new Card(cloneTemplate(planetTemplate));
+//     return cardPlanet.render(item);
+//   }
+// });
+// const card = new Card(clone)
+// console.log(card)
+// spaceObjects.forEach((item) => {
+//   console.log(item.type);
+// });
 
-const moon = new Satellite(moonConfig);
 
-const earthConfig: IPlanetConfig = {
-  name: "Earth",
-  mass: 5.972e24,
-  distanceFromStar: 149.6e6, // расстояние в километрах
-  orbitalSpeed: 29.78, // скорость в км/с
-  rotationSpeed: 7.2921159e-5, // скорость в радианах/с
-  satellites: [moon],
-};
-const earth = new Planet(earthConfig);
-
-console.log("Длина дня в секундах",earth.calculateDayLength())
-console.log("Орбитальный период",earth.calculateOrbitalPeriod())
-console.log("Длина дня в секундах",moon.calculateDayLength())
-console.log("Орбитальный период",moon.calculateOrbitalPeriod())
+document.addEventListener('DOMContentLoaded', () => {
+  const satelliteTemplate = ensureElement<HTMLTemplateElement>("#card__satellite");
+  const clone = cloneTemplate(satelliteTemplate);
+  const card = new Card(clone);
+  console.log(card)
+});
