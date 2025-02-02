@@ -9,17 +9,23 @@ const page = new Page(document.body);
 const planetTemplate = ensureElement<HTMLTemplateElement>("#card__planet");
 const satelliteTemplate =
   ensureElement<HTMLTemplateElement>("#card__satellite");
-  const clone = cloneTemplate(satelliteTemplate)
-  console.log(clone)
-// page.catalog = spaceObjects.map((item) => {
-//   if (item.type === "satellite") {
-//     const cardSatellite = new Card(cloneTemplate(satelliteTemplate));
-//     return cardSatellite.render(item);
-//   } else if (item.type === "planet") {
-//     const cardPlanet = new Card(cloneTemplate(planetTemplate));
-//     return cardPlanet.render(item);
-//   }
-// });
+
+const clone = cloneTemplate(satelliteTemplate)
+console.log(clone)
+const card = new Card(clone)
+
+page.catalog = spaceObjects.map((item) => {
+  if (item.type === "satellite") {
+    const cardSatellite = new Card(cloneTemplate(satelliteTemplate));
+    console.log(cardSatellite)
+    return cardSatellite.render(item);
+  } else if (item.type === "planet") {
+    const cardPlanet = new Card(cloneTemplate(planetTemplate));
+    console.log(cardPlanet)
+    return cardPlanet.render(item);
+  }
+});
+
 // const card = new Card(clone)
 // console.log(card)
 // spaceObjects.forEach((item) => {
@@ -28,8 +34,5 @@ const satelliteTemplate =
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const satelliteTemplate = ensureElement<HTMLTemplateElement>("#card__satellite");
-  const clone = cloneTemplate(satelliteTemplate);
-  const card = new Card(clone);
-  console.log(card)
+console.log('loaded')
 });
