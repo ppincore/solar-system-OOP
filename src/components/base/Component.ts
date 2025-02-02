@@ -47,6 +47,7 @@ export abstract class Component<T> {
 
     // Вернуть корневой DOM-элемент
     render(data?: Partial<T>): HTMLElement {
+        console.log(data, this.container)
         Object.assign(this as object, data ?? {});
         return this.container;
     }
