@@ -4,6 +4,7 @@ export class Satellite implements ISatellite {
   name: string;
   mass: number;
   type: "satellite";
+  image: string;
   distanceFromPlanet: number;
   orbitalSpeed: number;
   rotationSpeed: number;
@@ -13,6 +14,7 @@ export class Satellite implements ISatellite {
       name,
       mass,
       type,
+      image,
       distanceFromPlanet,
       orbitalSpeed,
       rotationSpeed,
@@ -20,6 +22,7 @@ export class Satellite implements ISatellite {
     this.name = name;
     this.mass = mass;
     this.type = type;
+    this.image = image
     this.distanceFromPlanet = distanceFromPlanet;
     this.orbitalSpeed = orbitalSpeed;
     this.rotationSpeed = rotationSpeed;

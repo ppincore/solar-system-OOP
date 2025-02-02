@@ -1,6 +1,7 @@
 export interface IBaseSpaceObject {
 	name: string;
 	mass: number;
+	image:string;
 	type: 'planet' | 'satellite'
 	orbitalSpeed: number;
 	rotationSpeed: number;

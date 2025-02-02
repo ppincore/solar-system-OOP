@@ -3,7 +3,7 @@ import { IPlanet, ISatellite } from "../../types";
 import { ensureElement } from "../../utils/utils";
 
 export class Card extends Component<IPlanet | ISatellite> {
-  protected _title: HTMLElement;
+  protected _name: HTMLElement;
   protected _image: HTMLImageElement;
   protected _mass: HTMLElement;
   protected _distance: HTMLElement;
@@ -13,26 +13,27 @@ export class Card extends Component<IPlanet | ISatellite> {
 
   constructor(container: HTMLElement) {
     super(container);
-    this._title = ensureElement<HTMLElement>("card__title", container);
-    this._image = ensureElement<HTMLImageElement>("card__image", container);
-    this._mass = ensureElement<HTMLElement>("card__mass", container);
-    this._distance = ensureElement<HTMLElement>("card__distance", container);
+    this._name = ensureElement<HTMLElement>(".card__title", container);
+    this._image = container.querySelector(".card__image");
+    this._mass = ensureElement<HTMLElement>(".card__mass", container);
+    this._distance = ensureElement<HTMLElement>(".card__distance", container);
     this._orbitalSpeed = ensureElement<HTMLElement>(
-      "card__orbitalSpeed",
+      ".card__orbitalSpeed",
       container
     );
     this._rotatonSpeed = ensureElement<HTMLElement>(
-      "card__rotatonSpeed",
+      ".card__rotatonSpeed",
       container
     );
-    this._satellites = ensureElement<HTMLElement>(
-      "card__satellites",
-      container
-    );
+    
+    const satelliteCardElement = container.querySelector<HTMLElement>('.card__satellites')
+    satelliteCardElement
+    ? this._satellites = satelliteCardElement
+    : this._satellites = null
   }
 
-  set title(value: string) {
-    this.setText(this._title, value);
+  set name(value: string) {
+    this.setText(this._name, value);
   }
   set image(value: string) {
     this.setImage(this._image, value);
@@ -50,7 +51,7 @@ export class Card extends Component<IPlanet | ISatellite> {
   set rotationSpeed(value: number) {
     this.setText(this._rotatonSpeed, value);
   }
-  set satellites(value: number) {
+  set satellites(value: ISatellite[]) {
     this.setText(this._satellites, value);
   }
 }
