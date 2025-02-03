@@ -48,7 +48,7 @@ export class Card extends Component<IPlanet | ISatellite> {
     this.setImage(this._image, value);
   }
   set mass(value: number) {
-    this.setText(this._mass, `Масса: ${value} килограмм`);
+    this.setText(this._mass, `Масса: ${value} кг`);
   }
 
   set distance(value: number) {
@@ -65,6 +65,9 @@ export class Card extends Component<IPlanet | ISatellite> {
     console.log(this.container);
   }
   set satellites(value: ISatellite[]) {
-    this.setText(this._satellites, `Спутник: ${value}`);
+    const satellites =  value.map(item=>item.name).join(', ')
+    this.setText(this._satellites, `Спутник: ${satellites}`);
   }
+
+  
 }
