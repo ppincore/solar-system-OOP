@@ -7,6 +7,8 @@ export class Planet implements IPlanet {
   image: string;
   distanceFromStar: number;
   distance: string;
+  dayLength: string
+  orbitalPeriod:string
   orbitalSpeed: number;
   rotationSpeed: number;
   satellites: ISatellite[];

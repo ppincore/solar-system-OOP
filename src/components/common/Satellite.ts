@@ -6,6 +6,8 @@ export class Satellite implements ISatellite {
   type: "satellite";
   image: string;
   distance: string;
+  dayLength: string
+  orbitalPeriod:string
   distanceFromPlanet: number;
   orbitalSpeed: number;
   rotationSpeed: number;

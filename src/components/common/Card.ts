@@ -26,15 +26,21 @@ export class Card extends Component<IPlanet | ISatellite> {
       ".card__rotatonSpeed",
       container
     );
-    this._dayLength = ensureElement<HTMLElement>('card__dayLength',container)
-    this._orbitalPeriod = ensureElement<HTMLElement>('card__orbitalPeriod',container)
+    this._dayLength = ensureElement<HTMLElement>('.card__dayLength',container)
+    this._orbitalPeriod = ensureElement<HTMLElement>('.card__orbitalPeriod',container)
     const satelliteCardElement =
       container.querySelector<HTMLElement>(".card__satellites");
     satelliteCardElement
       ? (this._satellites = satelliteCardElement)
       : (this._satellites = null);
   }
-
+  
+  set dayLength(value:string){
+    this.setText(this._dayLength,value)
+  }
+  set orbitalPeriod(value:string){
+    this.setText(this._orbitalPeriod, value)
+  }
   set name(value: string) {
     this.setText(this._name, `Название  объекта: ${value}`);
   }
