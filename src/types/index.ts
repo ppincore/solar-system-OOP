@@ -1,20 +1,25 @@
-export interface IBaseSpaceObject {
-	name: string;
-	mass: number;
-	image:string;
-	type: 'planet' | 'satellite'
-	distance?:string
-	orbitalSpeed: number;
-	rotationSpeed: number;
-  }
+export interface IPlanet {
+  name: string;
+  image: string;
+  mass: number;
+  orbitRadius: number;
+  rotationSpeed: number;
+  axialRotationPeriodHours: number;
+  distanceFromStar: number;
+  satellites?: ISatellite[];
+}
 
-  export interface ISatellite extends IBaseSpaceObject{
-	type: 'satellite',
-	distanceFromPlanet: number,
-
-  }
-  export interface IPlanet extends IBaseSpaceObject {
-	type: 'planet';
-	distanceFromStar: number;
-	satellites: ISatellite[];
-  }
+export interface ISatellite {
+  name: string;
+  image: string;
+  mass: number;
+  orbitRadius: number;
+  rotationSpeed: number;
+  axialRotationPeriodHours: number;
+  distanceFromPlanet: number;
+}
+export interface IStar {
+  name: string;
+  mass: number;
+  image: string;
+}

@@ -1,33 +1,24 @@
-import { ISatellite } from "../../types";
-
-export class Satellite implements ISatellite {
-  name: string;
-  mass: number;
-  type: "satellite";
-  image: string;
-  distance: string;
-  dayLength: string
-  orbitalPeriod:string
+import { SpaceObject } from "../base/SpaceObject";
+export class Satellite extends SpaceObject {
   distanceFromPlanet: number;
-  orbitalSpeed: number;
-  rotationSpeed: number;
-  constructor(props:ISatellite)
-   {
-    const {
-      name,
-      mass,
-      type,
-      image,
-      distanceFromPlanet,
-      orbitalSpeed,
-      rotationSpeed,
-    } = props;
-    this.name = name;
-    this.mass = mass;
-    this.type = type;
-    this.image = image
-    this.distanceFromPlanet = distanceFromPlanet;
-    this.orbitalSpeed = orbitalSpeed;
-    this.rotationSpeed = rotationSpeed;
+
+  constructor(satelliteData: {
+    name: string;
+    mass: number;
+    orbitRadius: number;
+    rotationSpeed: number;
+    axialRotationPeriodHours: number;
+    image: string;
+    distanceFromPlanet: number;
+  }) {
+    super(
+      satelliteData.name,
+      satelliteData.mass,
+      satelliteData.orbitRadius,
+      satelliteData.rotationSpeed,
+      satelliteData.axialRotationPeriodHours,
+      satelliteData.image
+    );
+    this.distanceFromPlanet = satelliteData.distanceFromPlanet;
   }
 }
